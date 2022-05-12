@@ -11,20 +11,28 @@
 
 <body>
 
-    <header class="header">Weather Dashboard (needs styling)</header>
+    <section class="hero is-small is-info">
+        <div class="hero-body">
+            <p class="title is-1">Weather Dashboard</p>
+            <p class="subtitle">Find Weather for any City</p>
+        </div>
+    </section>
 <!-- City search left side is-3 -->
 
     <div class="container is-fluid">
         <div class="columns">
-            <div class="column is-3">
+
+            <div class="column is-3 searchColumn">
                 <h1 class="title">Search for a City </h1>
-                        <div class="control searchbar">
+                    <div class="barAndBtn">
+                        <div class="control is-flex searchbar">
                             <input class="input is-focused" type="text" placeholder="Search for City">
                           </div>
                           <div class="control is-flex buttonDiv">
-                            <button class="button searchBtn">Search</button>
+                            <button class="button is-primary searchBtn">Search</button>
                           </div>
-
+                    </div>
+            
                           <div class="columns">
                             <div class="column">
                                <h4 class="title is-4">Atlanta</h4>
@@ -54,43 +62,16 @@
                                 <h4 class="title is-4">Los Angeles</h4>
                              </div>
                         </div>
-
                     </div>
-                    <div class="column is-9">
-                        <h1 class="title is-1 is-centered">Weather display goes here</h1>
+
+
+                    <div class="column is-9 weatherColumn">
+                        <h1 class="title is-2 is-centered">Weather display goes here</h1>
                     </div>
                 </div>
     </div>
 
-    <!--
-           <div class="columns">
-                <div class="column is-3">
-                   <p class="bd-notification is-info">City name here</p>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="column is-3">
-                   <p class="bd-notification is-info">City name here</p>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="column is-3">
-                   <p class="bd-notification is-info">City name here</p>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="column is-3">
-                   <p class="bd-notification is-info">City name here</p>
-                </div>
-            </div>
-        </div>
-
- Right side of page weather display is-9
-         <div class="column is-9">
-            <p class="bd-notification is-info">Weather display goes here</p>
-        </div>  -->
-
-     </div> <!--END CONTAINER DIV-->
+  <!--END CONTAINER DIV-->
     
 </body>
 

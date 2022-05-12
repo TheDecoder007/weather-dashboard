@@ -1,14 +1,44 @@
 
 
-/* .searchColumns {
-    display: inline;
-} */
 
-/* SEARCH BAR */
+
+/* SEARCH BAR/BTN */
 .input {
     width: auto;
 }
 
+.buttonDiv {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 15px;   
+}
+
+.button.is-primary {
+    color: navy;
+}
+
+.searchbar {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+/* END SEARCH BAR/BTN */
+
+/* HERO */
 .title {
     text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+}
+/* END HERO */
+
+.searchColumn {
+    padding: 30px;
+}
+
+.weatherColumn {
+    padding: 30px;
 }
