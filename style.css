@@ -12,6 +12,16 @@
     color: navy;
     font-weight: bold;
     font-size: larger;
+    border: 2px solid navy;
+    border-radius: 10px;
+    /* padding-top: 1px; */
+}
+
+.cityBtn:hover {
+    background-color: navy;
+    border-color: aliceblue;
+    color: aliceblue;
+    box-shadow: 0 0 10px navy;
 }
 
 .titleText {
@@ -26,11 +36,15 @@
 
 .button.searchBtn {
     background-color: navy;
-    color: skyblue;
+    color: aliceblue;
+    border: 2px solid navy;
+    border-radius: 10px;
 }
 
 .button.searchBtn:hover {
     color: white;
+    box-shadow: 0 0 10px navy;
+    border-color: aliceblue;
 }
 .searchbar {
     align-items: center;
