@@ -6,6 +6,7 @@
 .input {
     width: auto;
     border-color: navy;
+    background-color: aliceblue;
 }
 
 .cityBtn {
@@ -47,11 +48,13 @@
     color: white;
     box-shadow: 0 0 10px navy;
     border-color: aliceblue;
+   
 }
 .searchbar {
     align-items: center;
     display: flex;
     justify-content: center;
+    
 }
 /* END SEARCH SECTION */
 
@@ -90,6 +93,7 @@
     border-radius: 10px;
     justify-content: center;
     align-items: center;
+    background-color: aliceblue;
 }
 
 .cityToday {
