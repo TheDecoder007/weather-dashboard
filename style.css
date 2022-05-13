@@ -96,16 +96,21 @@
     justify-content: center;
     align-items: center;
     background-color: aliceblue;
+  
 }
 
 .cityToday {
     padding-left: 10px;
     padding-bottom: 10px;
 }
+
+.fiveDay {
+    padding-top: 20px;
+}
 /* 5 DAY CARDS */
 
 .dayCard {
-    background-color: rgb(197, 224, 247);
+    background-color: rgb(205, 226, 245);
     margin: 5px;
     color: navy;
     border: 2px solid navy;
