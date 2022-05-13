@@ -2,11 +2,21 @@
 
 
 
-/* SEARCH BAR/BTN */
+/* SEARCH SECTION */
 .input {
     width: auto;
 }
 
+.cityBtn {
+    background-color: skyblue;
+    color: navy;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.titleText {
+    color: navy;
+}
 .buttonDiv {
     align-items: center;
     display: flex;
@@ -14,31 +24,72 @@
     padding: 15px;   
 }
 
-.button.is-primary {
-    color: navy;
+.button.searchBtn {
+    background-color: navy;
+    color: skyblue;
 }
 
+.button.searchBtn:hover {
+    color: white;
+}
 .searchbar {
     align-items: center;
     display: flex;
     justify-content: center;
 }
-/* END SEARCH BAR/BTN */
+/* END SEARCH SECTION */
 
 /* HERO */
 .title {
     text-align: center;
+   
 }
 
 .subtitle {
     text-align: center;
+    
+}
+
+.hero-body {
+    background-color: navy;
+   
+}
+
+.heroTitle {
+    color: aliceblue;
 }
 /* END HERO */
 
 .searchColumn {
     padding: 30px;
+    border-right: 3px navy;
 }
 
 .weatherColumn {
     padding: 30px;
+}
+
+.currentCond {
+    border: 2px solid navy;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cityToday {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+/* 5 DAY CARDS */
+
+.dayCard {
+    background-color: skyblue;
+    margin: 5px;
+    color: navy;
+    border: 2px solid navy;
+    border-radius: 10px;
+}
+
+ul li {
+    color: navy;
 }
