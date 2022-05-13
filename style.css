@@ -49,6 +49,7 @@
     color: white;
     box-shadow: 0 0 10px navy;
     border-color: aliceblue;
+    font-weight: 500;
    
 }
 .searchbar {
@@ -104,7 +105,7 @@
 /* 5 DAY CARDS */
 
 .dayCard {
-    background-color: rgb(191, 221, 248);
+    background-color: rgb(197, 224, 247);
     margin: 5px;
     color: navy;
     border: 2px solid navy;
