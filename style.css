@@ -16,6 +16,7 @@
     font-size: larger;
     border: 2px solid navy;
     border-radius: 10px;
+    box-shadow: 0 0 10px skyblue;
     
 }
 
@@ -108,6 +109,7 @@
     color: navy;
     border: 2px solid navy;
     border-radius: 10px;
+    box-shadow: 0 0 10px skyblue;
 }
 
 .column .is-one-fifth {
