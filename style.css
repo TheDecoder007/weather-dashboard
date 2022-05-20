@@ -16,7 +16,7 @@
     font-size: larger;
     border: 2px solid navy;
     border-radius: 10px;
-    box-shadow: 0 0 10px skyblue;
+    box-shadow: 0 0 6px navy;
     
 }
 
@@ -82,8 +82,12 @@
 /* END HERO */
 
 .searchColumn {
-    padding: 30px;
-    border-right: 3px navy;
+    padding: 7px;
+    /* border-right: 3px navy; */
+    background-color: aliceblue;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 3px solid navy
 }
 
 .weatherColumn {
@@ -91,17 +95,19 @@
 }
 
 .currentCond {
-    border: 2px solid navy;
+    border: 3px solid navy;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
     background-color: aliceblue;
+    box-shadow: 0 0 7px navy;
   
 }
 
 .cityToday {
     padding-left: 10px;
     padding-bottom: 10px;
+    
 }
 
 .fiveDay {
@@ -115,7 +121,7 @@
     color: navy;
     border: 2px solid navy;
     border-radius: 10px;
-    box-shadow: 0 0 10px skyblue;
+    box-shadow: 0 0 5px navy;
 }
 
 .column .is-one-fifth {
