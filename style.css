@@ -27,7 +27,7 @@
     box-shadow: 0 0 10px navy;
 }
 .currentCity {
-    margin-bottom: none;
+    margin-top: 10px;
 }
 
 .iconSpan {
@@ -112,7 +112,7 @@
   
 }
 
-.cityToday {
+.cityTodayUL {
     text-align: center;
     font-size: large;
     
