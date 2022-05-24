@@ -40,7 +40,7 @@ var formSubmitHandler = function(event) {
   
   //function to fetch from API
   var getCity  = function(city) {
-    var apiUrlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a732740e9afd7858896a61e89013252f&units=imperial";
+    var apiUrlCurrent = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=a732740e9afd7858896a61e89013252f&units=imperial";
     
     fetch(apiUrlCurrent).then(function(response) {
       if (response.ok) {
@@ -59,22 +59,25 @@ var formSubmitHandler = function(event) {
   //accepts the array of repository data, and the term we searched for as parameters
   var displayCity = function(city, searchTerm) {
   //clear old content from repos display
-  titleText.textContent = "";
+  // titleText.textContent = "";
   titleText.textContent = city.name;
     console.log(city);
     console.log(searchTerm);
 
-    var todayDescEl = document.querySelector('#todayDesc');
-    todayDescEl.textContent = city.weather[0].description;
+    // var todayDescEl = document.querySelector('#todayDesc');
+    // todayDescEl.textContent = list[0].weather[0].description;
 
-    var tempEl = document.querySelector("#temp");
-    tempEl.textContent = 'Temp: ' + city.main.temp + 'F';
+    // var tempEl = document.querySelector("#temp");
+    // tempEl.textContent = 'Temp: ' + list[0].main.temp + 'F';
 
-    var windEl = document.querySelector("#wind");
-    windEl.textContent = 'Wind: ' + city.wind.speed + 'mph';
+    // var windEl = document.querySelector("#wind");
+    // windEl.textContent = 'Wind: ' + list[0].wind.speed + 'mph';
 
-    var humidityEl = document.querySelector("#humidity");
-    humidityEl.textContent = 'Humidity: ' + city.main.humidity + '%';
+    // var humidityEl = document.querySelector("#humidity");
+    // humidityEl.textContent = 'Humidity: ' + list[0].main.humidity + '%';
+
+    // var iconTodayEl = document.querySelector("#iconToday");
+    // iconTodayEl.textContent = 
   }
  
   
