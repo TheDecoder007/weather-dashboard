@@ -24,14 +24,14 @@
 
             <div class="column is-3 searchColumn">
                 <h1 class="title titleText">Search for a City </h1>
-                    <div class="barAndBtn">
+                    <form id="searchForm" class="barAndBtn">
                         <div class="control is-flex searchbar">
-                            <input class="input is-focused" type="text" placeholder="Search for City">
+                            <input id="searchInput" class="input is-focused" type="text" placeholder="Search for City">
                           </div>
                           <div class="control is-flex buttonDiv">
                             <button class="button searchBtn">Search</button>
                           </div>
-                    </div>
+                    </form>
             
                  
                           <div class="columns">
@@ -113,17 +113,17 @@
                 <section class="currentCond">    
                     <div class="columns">
                         <div class="column">
-                            <h3 class="title is-3 titleText">City Name</h3>
-                            <h4 class="title is-4 titleText">Todays Date</h4>
+                            <h3 id="titleText" class="title is-3">City Name</h3>
+                            <h4 id="todayDesc" class="title is-4">Todays Weather</h4>
                         </div>
                     </div>
                     <div class="columns">
                         <div class="column">
-                            <ul class="cityToday">
-                                <li>Temp:</li>
-                                <li>Wind:</li>
-                                <li>Humidity:</li>
-                                <li>UV Index:</li>
+                            <ul id="cityToday" class="cityToday">
+                                <li id="temp">Temp:</li>
+                                <li id="wind" >Wind:</li>
+                                <li id="humidity">Humidity:</li>
+                                <li id="UVindex">UV Index:</li>
                             </ul>
                         </div>
                     </div>
