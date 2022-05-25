@@ -167,4 +167,31 @@ var displayCity = function (city, searchTerm) {
   //arrays for 3pm- 5, 13, 21, 29, 37
 };
 
+var cities = {};
+
+//Local storage
+var loadCity = function() {
+  cities = JSON.parse(localStorage.getItem("titleText"));
+
+  // if nothing in localStorage, create a new object to track all task status arrays
+  if (!cities) {
+    cities = {
+      titleText: []
+    };    
+  }
+
+  // loop over object properties
+  $.each(titleText, function(list, arr) {
+    console.log(list, arr);
+    // then loop over sub-array
+    arr.forEach(function(task) {
+      createTask(task.text, task.date, list);
+    });
+  });
+};
+
+var saveCity = function() {
+  localStorage.setItem("titleText", JSON.stringify(cities));
+};
+
 searchFormEl.addEventListener("submit", formSubmitHandler);

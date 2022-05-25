@@ -51,6 +51,7 @@
     color: aliceblue;
     border: 2px solid navy;
     border-radius: 10px;
+    margin: 2px;
 }
 
 .button.searchBtn:hover {
