@@ -37,7 +37,7 @@ var formSubmitHandler = function (event) {
 };
 
 //function to fetch from API
-var getCity = function (city) {
+var getCity = function(city) {
   var apiUrlCurrent =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     city +
@@ -167,31 +167,48 @@ var displayCity = function (city, searchTerm) {
   //arrays for 3pm- 5, 13, 21, 29, 37
 };
 
-var cities = {};
 
-//Local storage
+
+// //Local storage attempts
+
+
+// var loadCity = function() {
+//   cities = JSON.parse(localStorage.getItem("titleText"));
+
+//   // if nothing in localStorage, create a new object to track all task status arrays
+//   if (!cities) {
+//     cities = {
+//       titleText: []
+//     };    
+//   }
+
+//   // loop over object properties
+//   $.each(titleText, function(list, arr) {
+//     console.log(list, arr);
+//     // then loop over sub-array
+//     arr.forEach(function(task) {
+//       createTask(task.text, task.date, list);
+//     });
+//   });
+// };
+ 
+var cities = [];
 var loadCity = function() {
-  cities = JSON.parse(localStorage.getItem("titleText"));
+  cities = JSON.parse(localStorage.getItem("cities"));
 
-  // if nothing in localStorage, create a new object to track all task status arrays
-  if (!cities) {
-    cities = {
-      titleText: []
-    };    
-  }
+  for(var i = 0; i < cities.length; i++) {
+    document.getElementById('cityBtn-' + i).innerHTML = cities[i]
+}
+var saveCity = function(city, index) {
+  cities[index] = city;
+  localStorage.setItem("cities", JSON.stringify(cities));
 
-  // loop over object properties
-  $.each(titleText, function(list, arr) {
-    console.log(list, arr);
-    // then loop over sub-array
-    arr.forEach(function(task) {
-      createTask(task.text, task.date, list);
-    });
+  document.getElementById('searchBtn').addEventListener("click", function(event) {
+    event.preventDefault();
+    saveCity(document.getElementById("titleText").value, 0)
   });
-};
-
-var saveCity = function() {
-  localStorage.setItem("titleText", JSON.stringify(cities));
-};
-
+}
+}
 searchFormEl.addEventListener("submit", formSubmitHandler);
+saveCity();
+loadCity();
