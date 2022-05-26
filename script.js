@@ -16,10 +16,10 @@ var repoContainerEl = document.querySelector("#repos-container");
 //was repoSearchTerm
 var titleText = document.querySelector("#titleText");
 
-//CODE FROM MODULE 6. SEARCH INPUT creates a div and pulls info from API//
-//need to refigure, to display search info in the cards, and create a
-//button with the city name that will be stored and clickable
 
+
+
+//SEARCH INPUT creates a div and pulls info from API
 // search bar input
 var formSubmitHandler = function (event) {
   event.preventDefault();
@@ -168,47 +168,41 @@ var displayCity = function (city, searchTerm) {
 };
 
 
-
-// //Local storage attempts
-
-
-// var loadCity = function() {
-//   cities = JSON.parse(localStorage.getItem("titleText"));
-
-//   // if nothing in localStorage, create a new object to track all task status arrays
-//   if (!cities) {
-//     cities = {
-//       titleText: []
-//     };    
-//   }
-
-//   // loop over object properties
-//   $.each(titleText, function(list, arr) {
-//     console.log(list, arr);
-//     // then loop over sub-array
-//     arr.forEach(function(task) {
-//       createTask(task.text, task.date, list);
-//     });
-//   });
-// };
- 
+// LOCAL STORAGE
 var cities = [];
-var loadCity = function() {
-  cities = JSON.parse(localStorage.getItem("cities"));
 
+document.getElementById('searchBtn').addEventListener("click", function(event) {
+  event.preventDefault();
+  saveCity(document.getElementById("searchInput").value, )
+});
+
+// var getSearch = JSON.parse(localStorage.getItem('searchInput'));
+
+var loadCity = function() {
+  cities = JSON.parse(localStorage.getItem("cities")) || [];
+  // if (cities.length === 0) {
+  //   document.getElementById('cityBtn-' + i).innerHTML = " "
+    
+  // } else {
   for(var i = 0; i < cities.length; i++) {
     document.getElementById('cityBtn-' + i).innerHTML = cities[i]
-}
+  
+  }
+  
+};
+
 var saveCity = function(city, index) {
   cities[index] = city;
   localStorage.setItem("cities", JSON.stringify(cities));
+};
 
-  document.getElementById('searchBtn').addEventListener("click", function(event) {
-    event.preventDefault();
-    saveCity(document.getElementById("titleText").value, 0)
-  });
-}
-}
+// loadCity();
+
+
+// var cityBtn = document.getElementById('cityBtn');
+// var searchBtn = document.getElementById('searchBtn');
+
+
+
 searchFormEl.addEventListener("submit", formSubmitHandler);
-saveCity();
-loadCity();
+
