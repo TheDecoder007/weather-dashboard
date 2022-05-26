@@ -217,7 +217,8 @@ var cities = [];
 document.getElementById('searchBtn').addEventListener("click", function(event) {
   event.preventDefault();
   saveCity(document.getElementById("searchInput").value, 0)
-  // createBtnEl(); button actually searches for city. what goes in place of 0
+  //button actually searches for city. what goes in place of 0
+  //createBtnEl();
 });
 
 // // var getSearch = JSON.parse(localStorage.getItem('searchInput'));
