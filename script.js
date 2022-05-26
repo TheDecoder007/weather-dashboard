@@ -12,12 +12,27 @@ var cityCurrent =
 var searchFormEl = document.querySelector("#searchForm");
 //was nameInputEl
 var searchInputEl = document.querySelector("#searchInput");
-var repoContainerEl = document.querySelector("#repos-container");
+//was repoContainerEl
+var btnContainerEl = document.querySelector("#buttonDiv");
 //was repoSearchTerm
 var titleText = document.querySelector("#titleText");
 
 
+//FORMHANDLER for created buttons
+// var formSubmitHandler2 = function (event) {
+//   event.preventDefault();
+//   //gets value from searchInputEl
+//   var cityName = createBtnEl.buttonEl.innerHTML.value.trim();
 
+//   if (cityName) {
+//     getCity(cityName);
+//     //clears the form after search
+//     searchInputEl.value = "";
+//   } else {
+//     alert("Please enter valid city.");
+//   }
+//   console.log(event);
+// };
 
 //SEARCH INPUT creates a div and pulls info from API
 // search bar input
@@ -167,16 +182,45 @@ var displayCity = function (city, searchTerm) {
   //arrays for 3pm- 5, 13, 21, 29, 37
 };
 
+//create buttons for searched cities
+var createBtnEl = function() {
+  cities = JSON.parse(localStorage.getItem("cities")) || [];
+  for (var i = 0; i < cities.length; i++) {
+    var cityBtnText = cities[i];
+
+//create container for button
+    // var btnContEl = document.createElement('div');
+    // btnContEl.classList = 'columns';
+
+    var btnColEl = document.createElement('div');
+    btnColEl.classList = 'column';
+    // btnContEl.appendChild(btnColEl);
+
+  //create button for each name
+    var buttonEl = document.createElement('button');
+    buttonEl.classList = 'button is-fullwidth cityBtn';
+    buttonEl.type = 'submit';
+    buttonEl.innerHTML = cityBtnText;
+    buttonEl.id = 'searchBtn';
+    
+    btnColEl.appendChild(buttonEl);
+    
+
+    searchFormEl.appendChild(btnColEl);
+
+  }
+}
 
 // LOCAL STORAGE
 var cities = [];
 
 document.getElementById('searchBtn').addEventListener("click", function(event) {
   event.preventDefault();
-  saveCity(document.getElementById("searchInput").value, )
+  saveCity(document.getElementById("searchInput").value, 0)
+  // createBtnEl(); button actually searches for city. what goes in place of 0
 });
 
-// var getSearch = JSON.parse(localStorage.getItem('searchInput'));
+// // var getSearch = JSON.parse(localStorage.getItem('searchInput'));
 
 var loadCity = function() {
   cities = JSON.parse(localStorage.getItem("cities")) || [];
@@ -185,10 +229,10 @@ var loadCity = function() {
     
   // } else {
   for(var i = 0; i < cities.length; i++) {
-    document.getElementById('cityBtn-' + i).innerHTML = cities[i]
+    // document.getElementById('cityBtn-' + i).innerHTML = cities[i]
   
   }
-  
+  createBtnEl(cities);
 };
 
 var saveCity = function(city, index) {
@@ -196,13 +240,11 @@ var saveCity = function(city, index) {
   localStorage.setItem("cities", JSON.stringify(cities));
 };
 
+loadCity();
+
+
+
 // loadCity();
-
-
-// var cityBtn = document.getElementById('cityBtn');
-// var searchBtn = document.getElementById('searchBtn');
-
-
-
+btnContainerEl.addEventListener('submit', formSubmitHandler);
 searchFormEl.addEventListener("submit", formSubmitHandler);
 
