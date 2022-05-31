@@ -217,9 +217,11 @@ var cities = [];
 document.getElementById('searchBtn').addEventListener("click", function(event) {
   event.preventDefault();
   saveCity(document.getElementById("searchInput").value, 0)
-  //I need to push() somewhere?
-  //button actually searches for city. what goes in place of 0 to add more than one item to array?
-  //createBtnEl();
+ 
+//   //I need to push() somewhere for multiple cities in array? 
+//   //what goes in place of 0 to add more than one item to array?
+//   //button actually searches for city. 
+//    //createBtnEl();
 });
 
 // // var getSearch = JSON.parse(localStorage.getItem('searchInput'));
@@ -233,8 +235,9 @@ var loadCity = function() {
   for(var i = 0; i < cities.length; i++) {
     // document.getElementById('cityBtn-' + i).innerHTML = cities[i]
   
+    //createBtnEl(cities);
   }
-  createBtnEl(cities);
+
 };
 
 var saveCity = function(city, index) {
@@ -242,7 +245,7 @@ var saveCity = function(city, index) {
   localStorage.setItem("cities", JSON.stringify(cities));
 };
 
-loadCity();
+//loadCity();
 
 
 
