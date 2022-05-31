@@ -201,8 +201,12 @@ var createBtnEl = function() {
     buttonEl.classList = 'button is-fullwidth cityBtn';
     buttonEl.type = 'submit';
     buttonEl.innerHTML = cityBtnText;
-    buttonEl.id = 'searchBtn';
-    
+    buttonEl.id = cityBtnText;
+    buttonEl.addEventListener("click", function () {
+     getCity(cityBtnText);
+    //  saveCity(document.getElementById("searchInput").value, 0)
+    //  loadCity(); 
+  }) 
     btnColEl.appendChild(buttonEl);
     
 
@@ -216,40 +220,37 @@ var cities = [];
 
 document.getElementById('searchBtn').addEventListener("click", function(event) {
   event.preventDefault();
-  saveCity(document.getElementById("searchInput").value, 0)
- 
+  saveCity(document.getElementById("searchInput").value)
+     loadCity(); 
+  // createBtnEl();
+});
 //   //I need to push() somewhere for multiple cities in array? 
 //   //what goes in place of 0 to add more than one item to array?
 //   //button actually searches for city. 
-//    //createBtnEl();
-});
+
 
 // // var getSearch = JSON.parse(localStorage.getItem('searchInput'));
 
 var loadCity = function() {
   cities = JSON.parse(localStorage.getItem("cities")) || [];
-  // if (cities.length === 0) {
-  //   document.getElementById('cityBtn-' + i).innerHTML = " "
-    
-  // } else {
+
   for(var i = 0; i < cities.length; i++) {
-    // document.getElementById('cityBtn-' + i).innerHTML = cities[i]
+    // document.getElementById('searchBtn' + i).innerHTML = cities[i]
   
-    //createBtnEl(cities);
+    createBtnEl();
   }
 
 };
 
-var saveCity = function(city, index) {
-  cities[index] = city;
+var saveCity = function(city) {
+  cities.push(city);
   localStorage.setItem("cities", JSON.stringify(cities));
 };
 
-//loadCity();
+loadCity();
 
 
 
-// loadCity();
-btnContainerEl.addEventListener('submit', formSubmitHandler);
-searchFormEl.addEventListener("submit", formSubmitHandler);
+// btnContainerEl.addEventListener('submit', formSubmitHandler);
+// searchFormEl.addEventListener("submit", formSubmitHandler);
 
