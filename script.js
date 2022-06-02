@@ -16,6 +16,7 @@ var searchInputEl = document.querySelector("#searchInput");
 var btnContainerEl = document.querySelector("#buttonDiv");
 //was repoSearchTerm
 var titleText = document.querySelector("#titleText");
+var createdBtnEl = document.querySelector('#createdBtn');
 
 
 //FORMHANDLER for created buttons
@@ -45,9 +46,10 @@ var formSubmitHandler = function (event) {
     getCity(cityName);
     //clears the form after search
     searchInputEl.value = "";
-  } else {
-    alert("Please enter valid city.");
-  }
+  } 
+  // else {
+  //   alert("Please enter valid city.");
+  // }
   console.log(event);
 };
 
@@ -64,7 +66,7 @@ var getCity = function(city) {
       response.json().then(function (data) {
         //when response data is converted to JSON, it gets sent from getCity  to displayCity
         displayCity(data, city);
-        console.log(data);
+        //console.log(data);
       });
     } else {
       alert("Please search for a valid city.");
@@ -74,10 +76,10 @@ var getCity = function(city) {
 
 //accepts the array of repository data, and the term we searched for as parameters
 var displayCity = function (city, searchTerm) {
-  //clear old content from repos display
-  // titleText.textContent = "";
+  //clear old content from city display
+  titleText.textContent = "";
   titleText.textContent = city.city.name + " Today";
-  console.log(city);
+  //console.log(city);
   console.log(searchTerm);
 
   //CURRENT DAY
@@ -199,21 +201,28 @@ var createBtnEl = function() {
   //create button for each name
     var buttonEl = document.createElement('button');
     buttonEl.classList = 'button is-fullwidth cityBtn';
-    buttonEl.type = 'submit';
+    // buttonEl.type = 'submit';
     buttonEl.innerHTML = cityBtnText;
-    buttonEl.id = cityBtnText;
-    buttonEl.addEventListener("click", function () {
-     getCity(cityBtnText);
+    buttonEl.id = 'createdBtn';
+    
+    
+    //getCity(cityBtnText);
     //  saveCity(document.getElementById("searchInput").value, 0)
     //  loadCity(); 
-  }) 
+    
     btnColEl.appendChild(buttonEl);
     
-
+    
     searchFormEl.appendChild(btnColEl);
+    
+    buttonEl.addEventListener("click", function(event) {
+      event.preventDefault();
 
+      getCity(document.getElementById('createdBtn').innerHTML)
+    });
   }
 }
+
 
 // LOCAL STORAGE
 var cities = [];
@@ -221,26 +230,19 @@ var cities = [];
 document.getElementById('searchBtn').addEventListener("click", function(event) {
   event.preventDefault();
   saveCity(document.getElementById("searchInput").value)
-     loadCity(); 
-  // createBtnEl();
+
 });
-//   //I need to push() somewhere for multiple cities in array? 
-//   //what goes in place of 0 to add more than one item to array?
-//   //button actually searches for city. 
-
-
-// // var getSearch = JSON.parse(localStorage.getItem('searchInput'));
 
 var loadCity = function() {
   cities = JSON.parse(localStorage.getItem("cities")) || [];
 
-  for(var i = 0; i < cities.length; i++) {
-    // document.getElementById('searchBtn' + i).innerHTML = cities[i]
+  //for(var i = 0; i < cities.length; i++) {
+    
   
     createBtnEl();
   }
 
-};
+//}
 
 var saveCity = function(city) {
   cities.push(city);
@@ -252,5 +254,5 @@ loadCity();
 
 
 // btnContainerEl.addEventListener('submit', formSubmitHandler);
-// searchFormEl.addEventListener("submit", formSubmitHandler);
-
+// searchInputEl.addEventListener("submit", formSubmitHandler);
+document.getElementById('searchBtn').addEventListener('click', formSubmitHandler);
