@@ -195,7 +195,7 @@ var createBtnEl = function() {
     // btnContEl.classList = 'columns';
 
     var btnColEl = document.createElement('div');
-    btnColEl.classList = 'column';
+    btnColEl.classList = 'column local-button';
     // btnContEl.appendChild(btnColEl);
 
   //create button for each name
@@ -203,8 +203,7 @@ var createBtnEl = function() {
     buttonEl.classList = 'button is-fullwidth cityBtn';
     // buttonEl.type = 'submit';
     buttonEl.innerHTML = cityBtnText;
-    buttonEl.id = 'createdBtn';
-    
+  
     
     //getCity(cityBtnText);
     //  saveCity(document.getElementById("searchInput").value, 0)
@@ -214,12 +213,21 @@ var createBtnEl = function() {
     
     
     searchFormEl.appendChild(btnColEl);
+    createEventListeners()
     
     buttonEl.addEventListener("click", function(event) {
       event.preventDefault();
 
       getCity(document.getElementById('createdBtn').innerHTML)
     });
+  }
+}
+
+function createEventListeners(){
+  var history= document.getElementsByClassName('local-button')
+  for (i=0; i<history.length;i++){
+    console.log(history[i].innerText)
+    history[i].addEventListener("click", getCity(history[i].innerText) )
   }
 }
 
