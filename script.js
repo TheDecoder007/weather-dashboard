@@ -223,13 +223,13 @@ var createBtnEl = function() {
   }
 }
 
-function createEventListeners(){
-  var history= document.getElementsByClassName('local-button')
-  for (i=0; i<history.length;i++){
-    console.log(history[i].innerText)
-    history[i].addEventListener("click", getCity(history[i].innerText) )
-  }
-}
+// function createEventListeners(){
+//   var history= document.getElementsByClassName('local-button')
+//   for (i=0; i<history.length;i++){
+//     console.log(history[i].innerText)
+//     history[i].addEventListener("click", getCity(history[i].innerText) )
+//   }
+// }
 
 
 // LOCAL STORAGE
