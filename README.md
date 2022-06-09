@@ -21,4 +21,4 @@ Deploy link: https://thedecoder007.github.io/weather-dashboard/
 * Upon refresh/revisiting the site, buttons will have been created with cities previously searched
 
 
-## Screenshot
+## Screenshot![Screenshot (784)](https://user-images.githubusercontent.com/101135574/172938792-4dd32794-a51b-4c76-b7f0-700559798ad2.png)
