@@ -16,28 +16,12 @@ var searchInputEl = document.querySelector("#searchInput");
 var btnContainerEl = document.querySelector("#buttonDiv");
 //was repoSearchTerm
 var titleText = document.querySelector("#titleText");
-var createdBtnEl = document.querySelector('#createdBtn');
+var createdBtnEl = document.querySelector("#createdBtn");
 
-
-//FORMHANDLER for created buttons
-// var formSubmitHandler2 = function (event) {
-//   event.preventDefault();
-//   //gets value from searchInputEl
-//   var cityName = createBtnEl.buttonEl.innerHTML.value.trim();
-
-//   if (cityName) {
-//     getCity(cityName);
-//     //clears the form after search
-//     searchInputEl.value = "";
-//   } else {
-//     alert("Please enter valid city.");
-//   }
-//   console.log(event);
-// };
 
 //SEARCH INPUT creates a div and pulls info from API
 // search bar input
-var formSubmitHandler = function (event) {
+var formSubmitHandler = function () {
   event.preventDefault();
   //gets value from searchInputEl
   var cityName = searchInputEl.value.trim();
@@ -46,15 +30,14 @@ var formSubmitHandler = function (event) {
     getCity(cityName);
     //clears the form after search
     searchInputEl.value = "";
-  } 
-  // else {
-  //   alert("Please enter valid city.");
-  // }
-  console.log(event);
+  }
+  else {
+    alert("Please enter valid city.");
+  }
 };
 
 //function to fetch from API
-var getCity = function(city) {
+var getCity = function (city) {
   var apiUrlCurrent =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     city +
@@ -79,7 +62,6 @@ var displayCity = function (city, searchTerm) {
   //clear old content from city display
   titleText.textContent = "";
   titleText.textContent = city.city.name + " Today";
-  //console.log(city);
   console.log(searchTerm);
 
   //CURRENT DAY
@@ -98,7 +80,7 @@ var displayCity = function (city, searchTerm) {
   //5 DAY
 
   //DAY1
-  var todayDate1 = document.querySelector("#date1")
+  var todayDate1 = document.querySelector("#date1");
   todayDate1.textContent = city.list[5].dt_txt;
 
   var todayDescEl1 = document.querySelector("#todayDesc1");
@@ -114,7 +96,7 @@ var displayCity = function (city, searchTerm) {
   humidityEl1.textContent = "Humidity: " + city.list[5].main.humidity + "%";
 
   //DAY 2
-  var todayDate2 = document.querySelector("#date2")
+  var todayDate2 = document.querySelector("#date2");
   todayDate2.textContent = city.list[13].dt_txt;
 
   var todayDescEl2 = document.querySelector("#todayDesc2");
@@ -130,7 +112,7 @@ var displayCity = function (city, searchTerm) {
   humidityEl2.textContent = "Humidity: " + city.list[13].main.humidity + "%";
 
   //DAY 3
-  var todayDate3 = document.querySelector("#date3")
+  var todayDate3 = document.querySelector("#date3");
   todayDate3.textContent = city.list[21].dt_txt;
 
   var todayDescEl3 = document.querySelector("#todayDesc3");
@@ -146,7 +128,7 @@ var displayCity = function (city, searchTerm) {
   humidityEl3.textContent = "Humidity: " + city.list[21].main.humidity + "%";
 
   //DAY 4
-  var todayDate4 = document.querySelector("#date4")
+  var todayDate4 = document.querySelector("#date4");
   todayDate4.textContent = city.list[29].dt_txt;
 
   var todayDescEl4 = document.querySelector("#todayDesc4");
@@ -162,7 +144,7 @@ var displayCity = function (city, searchTerm) {
   humidityEl.textContent = "Humidity: " + city.list[29].main.humidity + "%";
 
   //DAY 5
-  var todayDate5 = document.querySelector("#date5")
+  var todayDate5 = document.querySelector("#date5");
   todayDate5.textContent = city.list[37].dt_txt;
 
   var todayDescEl5 = document.querySelector("#todayDesc5");
@@ -185,43 +167,34 @@ var displayCity = function (city, searchTerm) {
 };
 
 //create buttons for searched cities
-var createBtnEl = function() {
+var createBtnEl = function () {
   cities = JSON.parse(localStorage.getItem("cities")) || [];
   for (var i = 0; i < cities.length; i++) {
     var cityBtnText = cities[i];
 
-//create container for button
-    // var btnContEl = document.createElement('div');
-    // btnContEl.classList = 'columns';
+    //create container for button
 
-    var btnColEl = document.createElement('div');
-    btnColEl.classList = 'column local-button';
-    // btnContEl.appendChild(btnColEl);
+    var btnColEl = document.createElement("div");
+    btnColEl.classList = "column local-button";
 
-  //create button for each name
-    var buttonEl = document.createElement('button');
-    buttonEl.classList = 'button is-fullwidth cityBtn';
-    // buttonEl.type = 'submit';
+    //create button for each name
+    var buttonEl = document.createElement("button");
+    buttonEl.classList = "button is-fullwidth cityBtn";
     buttonEl.innerHTML = cityBtnText;
-  
-    
-    //getCity(cityBtnText);
-    //  saveCity(document.getElementById("searchInput").value, 0)
-    //  loadCity(); 
-    
+    buttonEl.id = "createdBtn";
+
     btnColEl.appendChild(buttonEl);
-    
-    
+
     searchFormEl.appendChild(btnColEl);
-    createEventListeners()
-    
-    buttonEl.addEventListener("click", function(event) {
+    // createEventListeners()
+
+    buttonEl.addEventListener("click", function (event) {
       event.preventDefault();
 
-      getCity(document.getElementById('createdBtn').innerHTML)
+      getCity(document.getElementById("createdBtn").innerHTML);
     });
   }
-}
+};
 
 // function createEventListeners(){
 //   var history= document.getElementsByClassName('local-button')
@@ -231,36 +204,29 @@ var createBtnEl = function() {
 //   }
 // }
 
-
 // LOCAL STORAGE
 var cities = [];
 
-document.getElementById('searchBtn').addEventListener("click", function(event) {
-  event.preventDefault();
-  saveCity(document.getElementById("searchInput").value)
+document
+  .getElementById("searchBtn")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    saveCity(document.getElementById("searchInput").value);
+  });
 
-});
-
-var loadCity = function() {
+var loadCity = function () {
   cities = JSON.parse(localStorage.getItem("cities")) || [];
 
-  //for(var i = 0; i < cities.length; i++) {
-    
-  
-    createBtnEl();
-  }
+  createBtnEl();
+};
 
-//}
-
-var saveCity = function(city) {
+var saveCity = function (city) {
   cities.push(city);
   localStorage.setItem("cities", JSON.stringify(cities));
 };
 
 loadCity();
 
-
-
-// btnContainerEl.addEventListener('submit', formSubmitHandler);
-// searchInputEl.addEventListener("submit", formSubmitHandler);
-document.getElementById('searchBtn').addEventListener('click', formSubmitHandler);
+document
+  .getElementById("searchBtn")
+  .addEventListener("click", formSubmitHandler);
